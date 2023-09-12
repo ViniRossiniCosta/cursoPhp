@@ -1,55 +1,13 @@
 <?php
-// booleans / bool
 
-var_dump(true);
-var_dump(false);
+$heart = 'coisa'; 
+$heart45 = 'alguma'; 
+$thear = '12'; 
+$HeARt = 'coisa'; 
 
-// inteiros
+echo $heart45 . $heart . $thear . $HeARt;
 
-var_dump(123);   // Numero decimal
-var_dump(-123);  // Numeros negativos
-var_dump(0123);  // numero octal
-var_dump(0x1A);  // numero hexagonal
-var_dump(0b111); // numero binario
-
-// numeros flutuantes
-
-$a = 1.234;
-$b = 1.2e3;
-$c = 7E-10;
-
-echo $a . "\n";
-echo $b . "\n";
-echo $c . "\n";
-
-// strings
-
-echo "opa opa opa \n";
-echo "aaaaaaaaaaaaaaaaa";
-
-// arrays (vetores)
-
-$array1 = array(
-    "dev" => "vini",
-    "gp" => "php"
-);
-
-// ou
-
-$array2 = [
-    "dev" => "vini",
-    "gp" => "php"
-];
-
-var_dump($array1);
-var_dump($array2);
-
-// saida dos vetores
-
-echo $array1['dev'] . "\n";
-echo $array1['gp'] . "\n";
-
-echo $array2[0] . "\n";
-echo $array2[1] . "\n";
+$idade = '20 anos';
+echo " Sou Vini e tenho " . $idade . "\n";
 
 ?>
