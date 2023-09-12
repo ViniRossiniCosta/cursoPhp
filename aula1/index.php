@@ -44,4 +44,12 @@ $array2 = [
 var_dump($array1);
 var_dump($array2);
 
+// saida dos vetores
+
+echo $array1['dev'] . "\n";
+echo $array1['gp'] . "\n";
+
+echo $array2[0] . "\n";
+echo $array2[1] . "\n";
+
 ?>
