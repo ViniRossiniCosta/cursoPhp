@@ -1,35 +1,34 @@
 <?php
-// Operadores de atribuição
+// comparacao de valores
 
-$result = 10;
-echo $result;
+// igualdade
+echo (0 == false) . PHP_EOL;
+echo ('123' == 123) . PHP_EOL;
+echo ('1' == 1) . PHP_EOL;
+echo (123.0 == 123) . PHP_EOL;
 
-$result = 10;
-$result += 10;
-echo $result;
+// diferença
+echo (0 != false) . PHP_EOL;
+echo ('123' != 123) . PHP_EOL;
+echo ('1' != 1) . PHP_EOL;
+echo (123.0 != 123) . PHP_EOL;
 
-$result = 10;
-$result -= 8;
-echo $result;
+// identico
+echo (0 === false) . PHP_EOL;
+echo ('123' === 123) . PHP_EOL;
+echo ('1' === 1) . PHP_EOL;
+echo (123.0 === 123) . PHP_EOL;
 
-$result = 10;
-$result *= 100;
-echo $result;
+// não identico
+echo (0 !== false) . PHP_EOL;
+echo ('123' !== 123) . PHP_EOL;
+echo ('1' !== 1) . PHP_EOL;
+echo (123.0 !== 123) . PHP_EOL;
 
-$result = 10;
-$result /= 5;
-echo $result;
-
-$result = 10;
-$result %= 5;
-echo $result;
-
-// Operadores de incrementos
-
-$int_var = 20;
-
-echo 'incremento = ' . ++$int_var . PHP_EOL;
-echo 'decremento = ' . --$int_var . PHP_EOL;
-
+// maior/menor que
+echo (2 < 3) . PHP_EOL;
+echo (2 > 3) . PHP_EOL;
+echo (2 <= 2) . PHP_EOL;
+echo (2 >= 3) . PHP_EOL;
 
 ?>
