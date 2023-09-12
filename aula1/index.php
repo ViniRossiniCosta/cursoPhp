@@ -1,42 +1,29 @@
 <?php
+// operadores bitwise
+// E(&), OU(|), OU exlcusivo(^), Nao(~), Deslocar esquerda(<<), Deslocar direito(>>)
+/**
+ * Os operadores bitwise: & , | , ^ comparam dois valores inteiros utilizando suas representações binárias, 
+ * e retornam um novo valor. Cada bit será comparado e a formação desse novo valor depende do operador que você usar.
+ */
+   
+ echo 9 & 7;
+ echo 9 | 7;
+ echo 9 ^ 7;
 
-$a = 10;
-$b = 20;
-$soma = $a + $b;
-echo $soma . "\n";
+ $a = -9;
+ $a = ~$a;
 
-$a = 90;
-$b = 20;
-$subtracao = $a - $b;
-echo $subtracao . "\n";
+ echo $a;
 
-$a = 10;
-$b = 200;
-$mult = $a * $b;
-echo $mult . "\n";
+ $a = 9;
+ $b = 7;
+ 
+ echo $a << $b;
 
-$a = 5;
-$b = 20;
-$div = $a / $b;
-echo $div . "\n";
-
-$a = 100;
-$b = 459;
-$resto = $a % $b;
-echo $resto . "\n";
-
-$a = 100;
-$b = 459;
-$expo = $a ** $b;
-echo $expo . "\n";
-
-// ou as formulas podem ser executadas desta formas
-
-echo (50 + 10 - 30) * (5.2 / 2);
-
-// ou
-
-$a = 2;
-echo $a * ($b = 3);
+ $a = 9;
+ $b = 7;
+ 
+ echo $a >> $b;
+ 
 
 ?>
