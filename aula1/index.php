@@ -1,7 +1,7 @@
 <?php
 
-echo "Devs";
-echo "Bom" . "dia";
-echo 1234;
+var_dump("olá");
+var_dump(123);
+var_dump(new stdClass());
 
 ?>
