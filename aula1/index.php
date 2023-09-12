@@ -41,4 +41,7 @@ $array2 = [
     "gp" => "php"
 ];
 
+var_dump($array1);
+var_dump($array2);
+
 ?>
