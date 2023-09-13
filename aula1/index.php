@@ -1,34 +1,32 @@
 <?php
 
-// Operadores-arrays
-// operador de uniao
-$array = [0 => 'phpba','1' => 'phpsp', 2 => 'phpse'];
-$array2 = [3 => 'href'];
+// Operadores logicos
+// && e and
+$a = true;
+$b = true;
 
-print_r($array + $array2);
+var_dump($a && $b);
 
-// operador igualdade
-$array = [0 => 1];
-$array2 = [0 => 1];
+// or e ||
+$a = false;
+$b = true;
 
-echo $array == $array2;
+var_dump($a || $b);
 
-// operadores diferença != ou <>
-$array = [0 => 1];
-$array2 = [0 => 2];
+// ^ e xor
+$a = true;
+$b = true;
 
-echo $array != $array2;
+var_dump($a ^ $b);
 
-// operador identico ===
-$array1 = [0 => 1];
-$array2 = [0 => 1];
+$a = true;
+$b = false;
 
-echo $array === $array2
+var_dump($a ^ $b);
 
-// operador nao identico !==
-$array1 = [0 => 1];
-$array2 = [0 => '1'];
+// ! e not
+$a = true;
 
-echo $array1 !== $array2;
+var_dump(!$a);
 
 ?>
