@@ -1,45 +1,44 @@
 <?php
 
-// loops - for, foreach, while
-// ex 1 - for
-$contador = 10;
-echo "Script pra contar até" . $contador . PHP_EOL;
-for($i = 1; $i <= $contador; $i++){
-    echo $i . "... ";
+// namespace
+/**
+ * Namespaces no PHP servem para encapsular códigos e eliminar a possibilidade de colisão de nomes. 
+ * É uma forma de agrupar classes, interfaces, funções, métodos, constantes, entre outros que estão relacionadas.
+ */
+// ex 1
+namespace Controllers;
+class Controllers {
+    // encapsulando o controle
 }
-echo PHP_EOL . "Script finalizado!";
-
-// ex 2 - while
-$continuaLoop = true;
-$i = 1;
-echo "Script pra contar até 10"  . PHP_EOL;
-while ($continuaLoop){
-    echo $i . "... ";
-    if ($i == 10){
-        $continuaLoop = false;
-    }
-    $i++;
-}
-echo PHP_EOL . "Script finalizado!";
-
-// ex 3 - foreach
-$names = ["waasleey", "leozin044", "rychillie", "jpbrabo"];
-foreach($names as $name){
-    echo $name . " ";
+// sub-namespaces
+/**
+ * Também é possível escrever sub-namespaces. 
+ * Tudo o que está definido no exemplo abaixo fará parte do namespace Controllers\Admin
+ */
+namespace Controllers\admin;
+class adminController {
+    // encapsulando o adm controller
 }
 
-foreach($names as $key => $name){
-    echo $key . "." . $name . " ";
-}
+// Use
+/**
+ * Uma vez que você declarou namespaces em seu sistema é possível importar classes,
+ * traits, etc. Para isso basta usar a instrução use.
+ * A instrução use substitui a necessidade das variações de require e 
+ * include para importação de arquivos de código. 
+ * Cada namespace deve ter sua própria instrução use.
+ */
+// ex
+namespace Controllers;
+use synFony\Component\Console\Input\{InputInterface, InputOption};
 
-// ex 3 - foreach 2
-$pessoa = [
-    "danielhe4rt",
-    21,
-    "Fullstack Developer"
-];
-foreach ($pessoa as $chave => $valor) {
-    echo "$chave: $valor" . PHP_EOL;
-}
+// alias / as
+/**
+ * O uso de um namespace também permite alias. 
+ * Isso é feito usando a palavra-chave as para reduzir o namespace ou para evitar colisões devido a nomes iguais.
+ */
+// ex 
+namespace Controllers;
+use Zend\Twitter as twit;
 
 ?>
