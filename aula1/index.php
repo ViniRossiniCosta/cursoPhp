@@ -1,26 +1,85 @@
 <?php
-
-// sessions
+// classes
 /**
- * Trabalhar com o conceito de sessões permite que um conjunto de dados, 
- * possam ser utilizados pelos os usuários durante todo o tempo em que acessa 
- * e navega dentro da aplicação web sendo persistidos. Então dessa forma, é possível, 
- * por exemplo, verificar se o usuário está logado ou não no site, 
- * pegar um conteúdo que está dentro de uma carrinho de compras, 
- * ou até controlar permissões de execução do usuário, e muito mais.
- * Session é uma variável superglobal, é uma array associativo que basicamente, 
- * são estruturas onde cada elemento que esta dentro do array, é identificado por uma chave única.
+ * As classes são responsáveis por criarem estruturas 
+ * e comportamentos para conceitos das aplicações e do mundo real, 
+ * elas são compostas basicamente por propriedades e métodos. 
+ * As propriedades funcionam como característias de um objeto (representa uma analogia aos objetos do mundo real/virtual) 
+ * e os métodos representam suas funcionalidades. 
+ * Podemos ter um exemplo de um jogador de qualquer jogo virtual, 
+ * onde ele se registra, tem uma quantidade X de dinheiro, 
+ * e caso queira pode trocar de senha
  */
-session_start();
-echo "inicio";
-$_SESSION["aula"] = "PHP";
-$_SESSION["hora"] = time();
-echo '<br /><a href="pagina2.php">Clique para ir à página 02</a>';
+class Player {
+    public string $username;
+    private $password;
+    protected float $money;
 
-session_start();
-date_default_timezone_set('America/Sao_paulo');
-echo 'aaa';
-echo '+++' . $_SESSION['aula'] . '<br>';
-echo 'e agora sao ' . date('H:i:s', $_SESSION['hora']) . ' horas'; 
+    // Metodo construtor
+    public function __construct(string $username, string $password, float $money) {
+        $this->username = $username;
+        $this->password = $password;
+        $this->money = $money;
+    }
+    
+    /**
+     * setter que tem a função de atualizar a senha
+     */
+    public function updatePassword(string $oldPassword, string $newPassword): void {
+        if(!password_verify($oldPassword, $this->password)) {
+            throw new Exception('Senha incorreta');
+        }
+        $this->password = password_hash($newPassword, PASSWORD_ARGON2I);
+    }
 
+    /**
+     * metodo que checa a quantidade de dinheiro que o usuario tem, com o retorno booleano
+     */
+    public function canBuy(Item $item): bool 
+    {
+        return $this->getMoney() >= $item->getPrice();
+    }
+
+    /**
+     * getter com funcao de pegar o dinheiro na conta
+     */
+    public function getMoney():float {
+        return $this->money;
+    }
+}
+
+// Item.php
+class Item {
+
+    private string $name; 
+    private float $price; 
+
+    public function __construct(string $name, float $price)
+    {
+        $this->name = $name;
+        $this->price = $price;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getPrice(): string 
+    {
+        return $this->price;
+    }
+}
+
+$antiSerasa = new Item('antiSerasa', 5640);
+
+$vini = new Player('vini','secret123', 1000);
+
+echo "nome usuario: " . $vini->username;
+echo "saldo: " . $vini->getMoney();
+if($vini->canBuy($antiSerasa)){
+    echo $vini->username . 'voce pode comprar o ' . $antiSerasa->name . '!';
+}else{
+    echo $vini->username . 'voce não pode comprar o ' . $antiSerasa->name . '!';
+}
 ?>
