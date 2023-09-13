@@ -1,22 +1,24 @@
 <?php
-// Destrutores
+// heranca
 /**
- * Já os destrutores agem no momento oposto aos construtores, 
- * bem antes da classe ser removida da memória, sendo atribuídas null ou usando unset.
- * Suas ações devem ser definidas no metódo __destruct.
+ * Com ela é possível fazer o reuso de classes que contém atributos e metódos em comum.
  */
-class Usuario{
-    public string $username;
-    
-    // construtor
-    public function __construct(string $username) {
-        $this->username = $username;
-        echo 'cadastro efetuado';
-    }
+class Pai {
+    public $nome = 'goku';
+    public $idade = '33';
 
-    public function __destruct() {
-        echo 'conta usario' . $this->username . " encerrada!"
+    public function apresentar() {
+        echo 'Oi eu sou {$this->nome} e tenho {$this->idade} anos!' . PHP_EOL;
     }
 }
+
+class Filho extends Pai {
+    public $nome = 'gohan';
+}
+
+$pai = new Pai();
+$pai->apresentar();
+$filho = new Filho();
+$filho->apresentar();
 
 ?>
