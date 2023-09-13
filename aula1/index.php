@@ -1,34 +1,22 @@
 <?php
-// comparacao de valores
 
-// igualdade
-echo (0 == false) . PHP_EOL;
-echo ('123' == 123) . PHP_EOL;
-echo ('1' == 1) . PHP_EOL;
-echo (123.0 == 123) . PHP_EOL;
+// concatenação de texto
 
-// diferença
-echo (0 != false) . PHP_EOL;
-echo ('123' != 123) . PHP_EOL;
-echo ('1' != 1) . PHP_EOL;
-echo (123.0 != 123) . PHP_EOL;
+// concatenando com '.'
+$euQuero = 'eu queria saber' . 'a senha do wi-fi';
 
-// identico
-echo (0 === false) . PHP_EOL;
-echo ('123' === 123) . PHP_EOL;
-echo ('1' === 1) . PHP_EOL;
-echo (123.0 === 123) . PHP_EOL;
+echo $euQuero;
 
-// não identico
-echo (0 !== false) . PHP_EOL;
-echo ('123' !== 123) . PHP_EOL;
-echo ('1' !== 1) . PHP_EOL;
-echo (123.0 !== 123) . PHP_EOL;
+// concatenando com '.='
+$euQuero = 'eu queria saber'; 
+$euQuero .= 'a senha do wi-fi';
 
-// maior/menor que
-echo (2 < 3) . PHP_EOL;
-echo (2 > 3) . PHP_EOL;
-echo (2 <= 2) . PHP_EOL;
-echo (2 >= 3) . PHP_EOL;
+echo $euQuero;
+
+// concatenando as variaveis
+$euQuero = 'Alguem sabe a senha';
+$wifi = ' do wifi';
+
+echo $euQuero . $wifi;
 
 ?>
