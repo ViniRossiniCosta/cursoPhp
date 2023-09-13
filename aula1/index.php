@@ -1,22 +1,34 @@
 <?php
 
-// concatenação de texto
+// Operadores-arrays
+// operador de uniao
+$array = [0 => 'phpba','1' => 'phpsp', 2 => 'phpse'];
+$array2 = [3 => 'href'];
 
-// concatenando com '.'
-$euQuero = 'eu queria saber' . 'a senha do wi-fi';
+print_r($array + $array2);
 
-echo $euQuero;
+// operador igualdade
+$array = [0 => 1];
+$array2 = [0 => 1];
 
-// concatenando com '.='
-$euQuero = 'eu queria saber'; 
-$euQuero .= 'a senha do wi-fi';
+echo $array == $array2;
 
-echo $euQuero;
+// operadores diferença != ou <>
+$array = [0 => 1];
+$array2 = [0 => 2];
 
-// concatenando as variaveis
-$euQuero = 'Alguem sabe a senha';
-$wifi = ' do wifi';
+echo $array != $array2;
 
-echo $euQuero . $wifi;
+// operador identico ===
+$array1 = [0 => 1];
+$array2 = [0 => 1];
+
+echo $array === $array2
+
+// operador nao identico !==
+$array1 = [0 => 1];
+$array2 = [0 => '1'];
+
+echo $array1 !== $array2;
 
 ?>
