@@ -1,66 +1,36 @@
 <?php
-// modificadores de acesso
+// getters
 /**
- * Os modificadores de acesso são palavras-chave reservadas para definir quais metódos e/ou propriedades 
- * podem ser acessadas à partir de um ponto especifíco do seu código.
+ * Os métodos getters servem para pegar a referência de um valor (geralmente de uma propriedade).
+ * temos os modificadores de acesso, e nem sempre queremos deixar as nossas propriedades e métodos públicos, 
+ * mas se deixarmos privados como vamos acessar seu valor? podemos usar um getter
  */
-// public
-class Pessoa{
-    public $nome = 'junin';
-    public function apresentar() {
-        echo 'ola eu sou o {$this->nome}';
-    }
+class exemplo
+{
+  private $propriedadePrivada = "Esta propriedade não pode ser alterada nem lida diretamente";
+  public $propriedadePublica = "Esta propriedade pode ser alterada e lida diretamente";
+  
+  
+  //Esse método retorna o valor da $propriedadePrivada
+  public function getterParaAPropriedadePrivada()
+  {
+    // criada uma fnc que retorna a referencia desejada
+    return $this->propriedadePrivada;
+  }
 }
 
-$pessoa = new Pessoa();
-echo $pessoa->nome . PHP_EOL;
-$pessoa->apresentar() . PHP_EOL;
+// ou
 
-// protected
-class Pai {
-    protected $nomePai = 'Airton';
+class Exemplo2
+{
+   private static $propriedadePrivada = "Esta propriedade não pode ser alterada nem lida diretamente";
+   public static $propriedadePublica = "Esta propriedade pode ser alterada e lida diretamente";
+   
+   
+   //Esse método retorna o valor da $propriedadePrivada
+   public static function getterParaAPropriedadePrivada()
+   {
+    // usa Self para acessar os metodos da classe desejada
+     return self::$propriedadePrivada;
+   }
 }
-
-class Filho extends Pai {
-    public $nome = 'pedro pedras';
-    public function apresentar() {
-        echo 'meu nome é {$this->nome}e o do meu pai é ' . $this->nomePai;
-    }
-}
-
-$pai = new Pai();
-$pai->nomePai . PHP_EOL;
-
-$filho = new Filho();
-
-$filho->nomePai . PHP_EOL;
-$filho->apresentar();
-
-// private 
-class tio {
-    protected $nomeTio = 'giuberto';
-    private $cpf = '777.777.777.77';
-    public function apresentar() {
-        echo 'meu nome é {$this->nomeTio} e este é meu cpf {$this->cpf}';
-    }
-    private function mostrarCpf(){
-        echo $this->cpf;
-    }
-}
-
-class Primo extends Tio {
-    public $nome = 'theo';
-    public function mostrarCpfTio(){
-        echo 'o cpf do meu pai é: ' . $this->cpf; // prop inexistente
-    }
-}
-
-$pai = new Pai();
-$pai->cpf . PHP_EOL; //Erro fatal
-$pai->mostrarCpf() . PHP_EOL; //Erro fatal
-$pai->apresentar() . PHP_EOL; //Ok
-
-$filho = new Filho();
-$filho->mostrarCpfPai(); //Erro fatal
-
-?>
