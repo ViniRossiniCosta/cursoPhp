@@ -138,3 +138,5 @@ $descricaoPorCodigo = array(
 return isset($descricaoPorCodigo[5]) ? $descricaoPorCodigo[5] : 'Alguma coisa deu errado.';
 
 return $descricaoPorCodigo[5] ?? 'Alguma coisa deu errado.';
+
+?>
