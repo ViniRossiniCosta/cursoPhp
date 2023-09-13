@@ -1,32 +1,12 @@
 <?php
 
-// Operadores logicos
-// && e and
-$a = true;
-$b = true;
+// operador de execucao
+/**
+ * Os backticks ``, também conhecidos como backquotes, executam o conteúdo como um comando shell e são equivalentes a shell_exec().
+ * exec(), shell_exec() e system(), todos são capazes de executar comandos no nível do shell.
+ */
 
-var_dump($a && $b);
-
-// or e ||
-$a = false;
-$b = true;
-
-var_dump($a || $b);
-
-// ^ e xor
-$a = true;
-$b = true;
-
-var_dump($a ^ $b);
-
-$a = true;
-$b = false;
-
-var_dump($a ^ $b);
-
-// ! e not
-$a = true;
-
-var_dump(!$a);
+$output = `ls-la`;
+echo "<pre>$output</pre>";
 
 ?>
