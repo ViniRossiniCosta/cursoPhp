@@ -1,44 +1,26 @@
 <?php
 
-// namespace
+// sessions
 /**
- * Namespaces no PHP servem para encapsular códigos e eliminar a possibilidade de colisão de nomes. 
- * É uma forma de agrupar classes, interfaces, funções, métodos, constantes, entre outros que estão relacionadas.
+ * Trabalhar com o conceito de sessões permite que um conjunto de dados, 
+ * possam ser utilizados pelos os usuários durante todo o tempo em que acessa 
+ * e navega dentro da aplicação web sendo persistidos. Então dessa forma, é possível, 
+ * por exemplo, verificar se o usuário está logado ou não no site, 
+ * pegar um conteúdo que está dentro de uma carrinho de compras, 
+ * ou até controlar permissões de execução do usuário, e muito mais.
+ * Session é uma variável superglobal, é uma array associativo que basicamente, 
+ * são estruturas onde cada elemento que esta dentro do array, é identificado por uma chave única.
  */
-// ex 1
-namespace Controllers;
-class Controllers {
-    // encapsulando o controle
-}
-// sub-namespaces
-/**
- * Também é possível escrever sub-namespaces. 
- * Tudo o que está definido no exemplo abaixo fará parte do namespace Controllers\Admin
- */
-namespace Controllers\admin;
-class adminController {
-    // encapsulando o adm controller
-}
+session_start();
+echo "inicio";
+$_SESSION["aula"] = "PHP";
+$_SESSION["hora"] = time();
+echo '<br /><a href="pagina2.php">Clique para ir à página 02</a>';
 
-// Use
-/**
- * Uma vez que você declarou namespaces em seu sistema é possível importar classes,
- * traits, etc. Para isso basta usar a instrução use.
- * A instrução use substitui a necessidade das variações de require e 
- * include para importação de arquivos de código. 
- * Cada namespace deve ter sua própria instrução use.
- */
-// ex
-namespace Controllers;
-use synFony\Component\Console\Input\{InputInterface, InputOption};
-
-// alias / as
-/**
- * O uso de um namespace também permite alias. 
- * Isso é feito usando a palavra-chave as para reduzir o namespace ou para evitar colisões devido a nomes iguais.
- */
-// ex 
-namespace Controllers;
-use Zend\Twitter as twit;
+session_start();
+date_default_timezone_set('America/Sao_paulo');
+echo 'aaa';
+echo '+++' . $_SESSION['aula'] . '<br>';
+echo 'e agora sao ' . date('H:i:s', $_SESSION['hora']) . ' horas'; 
 
 ?>
