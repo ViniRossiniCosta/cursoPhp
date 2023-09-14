@@ -16,21 +16,13 @@
  * o descumprimento delas seria punitivo (que no nosso caso seria um erro fatal do código).
  */
 
-interface provedorPagamento {
-  // declaracao de metodos
- }
-
-interface paypal implements provedorPagamento{
-  // add metodos e atributos da classe
-}
-
 // implementação certa de uma interface
 interface HelloWorld {
   public function helloWorld():void;
 }
 
 class Saudar implements helloWorld {
-  public function helloWorld() {
+  public function helloWorld(): void {
     echo 'ola mundo !';
   }
 }
